@@ -1,0 +1,19 @@
+<h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="form-group has-icon">
+        <label class="control-label sr-only" for="inputName">Name</label><br>
+        <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName" %>
+        <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
+    </div>
+    <div class="form-group has-icon">
+        <label class="control-label sr-only" for="inputPassword">Password</label><br>
+        <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword" %>
+        <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
+    </div>
+    <%= f.check_box :remember_me %><span> Remember me</span><br>
+    <%= f.submit "log in", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+<% end %>
+
+<%= render "devise/shared/links" %>
