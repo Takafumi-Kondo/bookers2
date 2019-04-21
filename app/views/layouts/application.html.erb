@@ -10,6 +10,40 @@
   </head>
 
   <body>
+    <header>
+      <div class="header-contents">
+        <div class=header-title>Bookers</div>
+        <ul class="nav">
+          <% if user_signed_in? %>
+            <li class="">
+              <%= link_to "Home", user_path(current_user.id) %>
+            </li>
+            <li class="">
+              <%= link_to "Users", "/users" %>
+            </li>
+            <li class="">
+              <%= link_to "Books", "/books" %>
+            </li>
+            <li class="">
+              <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li class="">
+              <%= link_to "Home", "user_path(current_user.id)" %>
+            </li>
+            <li class="">
+              <%= link_to "About", "home/aboutページへ"%>
+            </li>
+            <li class="">
+              <%= link_to "sign up", new_user_registration_path %>
+            </li>
+            <li class="">
+              <%= link_to "logsin", new_user_session_path %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

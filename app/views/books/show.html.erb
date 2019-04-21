@@ -1,0 +1,26 @@
+<section class="book-show">
+	<h2>Book detail</h2>
+	<table>
+		<tr>
+			<td>
+				<%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", class: "" %><br>
+				<%= link_to @book.user.name, user_path(@book.user.id) %>
+			</td>
+			<td>
+				<%= @book.title %>
+			</td>
+			<td>
+				<%= @book.body %>
+			</td>
+			<% if @book.user == current_user %>
+				<td>
+					<%= link_to "edit", edit_book_path , class: "edit_#{@book.id}" %>
+				</td>
+				<td>
+					<%= link_to "Destroy", book_path, method: :delete, "data-confirm" => "本当に消しますか？", class: "destroy_#{@book.id}" %>
+				</td>
+			<% end %>
+		</tr>
+	</table>
+
+</section>

@@ -1,0 +1,26 @@
+<div class="books-container">
+	<div class="books-list">
+		<h2 class="books-title">Books</h2>
+		<table>
+			<tr>
+				<th></th>
+				<th>Title</th>
+				<th>Opinion</th>
+			</tr>
+			<% @books.each do |book| %>
+				<tr>
+					<td>
+						<!-- 後で画像リンクに -->
+						<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "" %>
+					</td>
+					<td>
+						<%= link_to book.title, book_path(book.id), class: "book_#{book.id}" %>
+					</td>
+					<td>
+						<span><%= book.body %></span><br>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
