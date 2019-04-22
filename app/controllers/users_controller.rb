@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     #@booksにその@userに紐づいたbooksのみを渡す(pageはkaminariメソッド)
   	@books = @user.books.page(params[:page]).reverse_order
+    @book = Book.new
   end
 
   def edit
@@ -12,6 +13,8 @@ class UsersController < ApplicationController
 
   def index
   	@users = User.all
+    # @user = @users.find(params[:id])
+    @book = Book.new
   end
 
   def update
@@ -22,8 +25,8 @@ class UsersController < ApplicationController
 
 
 
-  private
+  protected
   def user_params
-    params.require(:user).permit(:name, :profile_image)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 end

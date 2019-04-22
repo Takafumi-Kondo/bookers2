@@ -7,12 +7,12 @@
 	        <%= f.text_field :name, autofocus: true, class:"name" %>
 	    </p>
 		<p><strong>Image</strong></p><br>
-		<label class="control-label sr-only" for="inputEmail">ProfileImage</label>
+		<label class="control-label sr-only" for="inputEmail"></label>
 	    <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user_image" %>
 
-		<p><strong>Introduction</strong></p>
-
-		<!--追加後自己紹介追加-->
+		<p><strong>Introduction</strong>
+			<%= f.text_area :introduction, autofocus: true, class:"introduction" %>
+		</p>
 
 	    <%= f.submit "Update User", class:"" %>
 	<% end %>

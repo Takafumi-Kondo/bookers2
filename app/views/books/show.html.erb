@@ -1,3 +1,11 @@
+<%#サクセスメッセ%>
+<% if flash[:notice] %>
+	<div class="flash">
+		<%= flash[:notice] %>
+	</div>
+ <% end %>
+
+
 <section class="book-show">
 	<h2>Book detail</h2>
 	<table>

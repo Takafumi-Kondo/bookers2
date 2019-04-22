@@ -13,7 +13,3 @@
  *= require_tree .
  *= require_self
  */
-.books-container{
-	width: 75%;
-	float: right;
-}

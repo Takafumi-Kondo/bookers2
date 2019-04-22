@@ -1,3 +1,19 @@
+<%= form_for(@book) do |f| %>
+	<% if @book.errors.any? %>
+		<h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+		<ul>
+		<% @book.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+		</ul>
+	<% end %>
+<% end %>
+
+<div class="profile-container">
+<%#= render 'users/list', user: @user %>
+<%= render 'books/list', book: @book %>
+</div>
+
 <div class="books-container">
 	<div class="books-list">
 		<h2 class="books-title">Books</h2>

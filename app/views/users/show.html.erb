@@ -1,13 +1,9 @@
-<div class="profile-container">
-	<h2>User info</h2>
-<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg", class: "#" %>
-    <p class="profile-name"><strong>name</strong><%= @user.name %></p>
-    <p class="introduction"><strong>introduction</strong></p>
 
-        <% if @user.id == current_user.id %>
-        <p><%= link_to "編集", edit_user_path(@user), class: "edit_user_#{@user.id}" %></p>
-    <% end %>
 
+
+<%= render 'users/list', user: @user %>
+
+<%= render 'books/list', book: @book %>
 
 
 <%#ユーザの投稿一覧%>
@@ -33,3 +29,8 @@
 		</tr>
 	<% end %>
 </table>
+<% if flash[:notice] %>
+	<div class="flash">
+		<%= flash[:notice] %>
+	</div>
+ <% end %>

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 	resources :users, only: [:show, :edit, :index, :update]
 
 	get 'users/index' => 'users#index'
+
 end
