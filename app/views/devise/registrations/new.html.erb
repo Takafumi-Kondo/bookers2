@@ -1,29 +1,32 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-  <div class="form-group has-icon">
-    <label class="control-label sr-only" for="inputName">Name</label><br>
-    <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName" %>
-    <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+    <div class="form-group has-icon">
+      <label for="inputName">Name</label><br>
+      <%= f.text_field :name, autofocus: true, class: "name" %>
+      <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
+    </div>
 
-  <div class="form-group has-icon">
-    <label class="control-label sr-only" for="inputEmail">Email</label><br>
-    <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputEmail"%>
-    <span class="fa fa-envelope form-control-icon" aria-hidden="true"></span>
-  </div>
-  <div class="form-group has-icon">
-    <label class="control-label sr-only" for="inputEmail">Password (6 characters minimum) </label><br>
-    <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputEmail" %>
-    <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
-  </div>
-  <div class="form-group has-icon">
-    <label class="control-label sr-only" for="inputConfirmPassword">Password confirmation</label><br>
-    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword" %>
-     <span class="fa fa-check-circle-o form-control-icon" aria-hidden="true"></span>
-  </div>
+    <div class="form-group has-icon">
+      <label for="inputEmail">Email</label><br>
+      <%= f.email_field :email, autofocus: true, class: "email" %>
+      <span class="fa fa-envelope form-control-icon" aria-hidden="true"></span>
+    </div>
+    <div class="form-group has-icon">
+      <label for="inputEmail">Password (6 characters minimum) </label><br>
+      <%= f.password_field :password, autocomplete: "off", class: "password" %>
+      <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
+    </div>
+    <div class="form-group has-icon">
+      <label for="inputConfirmPassword">Password confirmation</label><br>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "password_confirm" %>
+       <span class="fa fa-check-circle-o form-control-icon" aria-hidden="true"></span>
+    </div>
 
 
-  <%= f.submit "サインアップ", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
-<% end %>
+    <%= f.submit "Sign up", class: "btn btn-success sign_up" %><br>
+    <%= link_to "Log in", "/users/log_in", class: "sign_in" %>
+  <% end %>
+</div>

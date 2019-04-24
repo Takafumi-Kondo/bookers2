@@ -1,13 +1,25 @@
-<h1>Editing Book</h1>
-<%= form_for(@book) do |f| %>
-	<p class="edit-headline">Title</p><br>
-	<%= f.text_field :title, class: "book_title" %>
-	<p class="edit-headline">Body</p>
-	<%= f.text_area :body, class: "book_body" %><br>
-<%= f.submit 'Update Book' %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<h1>Editing Book</h1>
+			<%= form_for(@book) do |f| %>
+				<p class="edit-headline">Title</p><br>
+				<div class="row">
+					<%= f.text_field :title, class: "col-xs-12 book_title" %>
+				</div>
+				<p class="edit-headline">Body</p>
+				<div class="row">
+					<%= f.text_area :body, class: "col-xs-12 book_body" %><br>
+				</div>
+				<div class="row">
+					<%= f.submit 'Update Book', class: "btn btn-primary col-xs-12" %>
+				</div>
+			<% end %>
 
-<p>
-<%= link_to "show", book_path , class: "show_#{@book.id}" %> |
-<%= link_to "Back", '/books', class: "back" %>
-</p>
+			<p>
+			<%= link_to "show", book_path , class: "book_#{@book.id}" %> |
+			<%= link_to "Back", '/books', class: "back" %>
+			</p>
+		</div>
+	</div>
+</div>

@@ -68,3 +68,5 @@ gem "refile-mini_magick"
 #kaminariGem追加
 gem 'kaminari','~> 1.1.1'
 #boostrapGem追加
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'

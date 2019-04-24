@@ -1,10 +1,18 @@
 <h2>New Book</h2>
+	<div class="row">
 	<%= form_for(book) do |f| %>
 		<h4>Title</h4><br>
-			<%= f.text_field :title, class:"book_title" %>
+			<%= f.text_field :title, class: "col-xs-12 book_title" %>
+	</div>
+	<div class="row">
 		<h4>Opinion</h4><br>
-			<%= f.text_area :body, class:"book_body" %><br>
-	<%= f.submit 'Create Book' %>
+			<%= f.text_area :body, class: "col-xs-12 book_body" %><br>
+	</div>
+	<br>
+	<div class ="row">
+			<%= f.submit 'Create Book', class: "btn btn-primary col-xs-12" %>
+	</div>
 	<% end %>
+
 <!-- いんすたふか -->
 <%# <%= render 'books/list', book: @book %>

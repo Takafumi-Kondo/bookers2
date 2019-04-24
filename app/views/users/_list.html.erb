@@ -1,10 +1,26 @@
 <h2>User info</h2>
-	<%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg", class: "#" %>
-    <p class="profile-name"><strong>name</strong><%= user.name %></p>
-    <p class="introduction"><strong>introduction</strong><%= user.introduction %></p>
+	<%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg", class: "user_image" %>
+	<table class="table">
+		<tr>
+			<td>
+				<strong>name</strong>
+			</td>
+			<td>
+				<%= user.name %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>introduction</strong>
+			</td>
+			<td>
+				<%= current_user.introduction %>
+			</td>
+		</tr>
+	</table>
 
-        <% if user.id == current_user.id %>
-        <p><%= link_to "編集", edit_user_path(user), class: "edit_user_#{user.id}" %></p>
+    <% if user.id == current_user.id %>
+    <p><%= link_to "", edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{user.id}" %></p>
  	<% end %>
 
 <%# <%= render 'users/list', user: @user %>

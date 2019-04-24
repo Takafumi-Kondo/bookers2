@@ -10,40 +10,56 @@
   </head>
 
   <body>
-    <header>
-      <div class="header-contents">
-        <div class=header-title>Bookers</div>
-        <ul class="nav">
-          <% if user_signed_in? %>
-            <li class="">
-              <%= link_to "Home", user_path(current_user.id) %>
-            </li>
-            <li class="">
-              <%= link_to "Users", "/users" %>
-            </li>
-            <li class="">
-              <%= link_to "Books", "/books" %>
-            </li>
-            <li class="">
-              <%= link_to "logout", destroy_user_session_path, method: :delete %>
-            </li>
-          <% else %>
-            <li class="">
-              <%= link_to "Home", "user_path(current_user.id)" %>
-            </li>
-            <li class="">
-              <%= link_to "About", "home/aboutページへ"%>
-            </li>
-            <li class="">
-              <%= link_to "sign up", new_user_registration_path %>
-            </li>
-            <li class="">
-              <%= link_to "logsin", new_user_session_path %>
-            </li>
-          <% end %>
-        </ul>
+    <header class="navbar navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-nav navbar-left text-white">
+      <a class="navbar-brand" href="#">
+        Bookers
+      </a>
+
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to " Home", user_path(current_user.id), class: "glyphicon glyphicon-home home" %>
+              </li>
+              <li>
+                <%= link_to " Users", "/users", class: "glyphicon glyphicon-user users" %>
+              </li>
+              <li>
+                <%= link_to " Books", "/books", class: "glyphicon glyphicon-book books" %>
+              </li>
+              <li>
+                <%= link_to " logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to " Home", "/", class: "glyphicon glyphicon-home home" %>
+              </li>
+              <li>
+                <%= link_to " About", "/home/about", class: "glyphicon glyphicon-link about" %>
+              </li>
+              <li>
+                <%= link_to " sign up", new_user_registration_path, class: "glyphicon glyphicon-edit sign_up" %>
+              </li>
+              <li>
+                <%= link_to " login", new_user_session_path, class: "glyphicon glyphicon-log-in sign_in" %>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
       </div>
     </header>
     <%= yield %>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-9">
+            <P>CopyRight Infratop.inc</P>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

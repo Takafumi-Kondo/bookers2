@@ -12,6 +12,7 @@ class BooksController < ApplicationController
     else
 #renderでindex飛んでもここの変数を使うので@books持ってくる
       @books = Book.all
+      @user = current_user
       render :index
     end
   end
@@ -19,11 +20,12 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all
-    #
+    @user = current_user#ユーザ詳細ページ
   end
 
   def show
     @book = Book.find(params[:id])
+    @user = User.find_by(id: @book.user)
 #findはidのみなので
   end
 

@@ -1,17 +1,20 @@
-<h2>Log in</h2>
+<div class="container">
+  <h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-group has-icon">
-      <label class="control-label sr-only" for="inputEmail">Email</label>
-      <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"メールアドレス"%>
-      <span class="fa fa-envelope form-control-icon" aria-hidden="true"></span>
-    </div>
-    <div class="form-group has-icon">
-      <label class="control-label sr-only" for="inputEmail">Password</label>
-      <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputEmail", placeholder:"パスワード" %>
-      <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
-    </div>
-    <%= f.check_box :remember_me %><span> Remember me</span><br>
-    <%= f.submit "log in", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
-<% end %>
-
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group has-icon">
+        <label for="inputName">Name</label><br>
+        <%= f.text_field :name, autofocus: true, class: "name", placeholder: "Name" %>
+        <span class="fa fa-envelope form-control-icon" aria-hidden="true"></span>
+      </div>
+      <div class="form-group has-icon">
+        <label for="inputEmail">Password</label><br>
+        <%= f.password_field :password, autocomplete: "off", class: "password", placeholder:"パスワード" %>
+        <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
+      </div>
+      <%= f.check_box :remember_me %><span> Remember me</span><br>
+      <%= f.submit "log in", class: "btn btn-primary sign_in" %><br>
+      <%= link_to "Sign up", "/users/sign_up", class: "sign_up" %><br>
+      <%= link_to "Forgot your password?", "/users/password/new" %>
+  <% end %>
+</div>

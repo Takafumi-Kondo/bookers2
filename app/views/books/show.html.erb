@@ -1,3 +1,4 @@
+<div class="container">
 <%#サクセスメッセ%>
 <% if flash[:notice] %>
 	<div class="flash">
@@ -5,30 +6,37 @@
 	</div>
  <% end %>
 
+	<div class="row">
+		<div class="col-xs-3">
+			<%= render 'users/list', user: @user %>
+			<br>
+			<%= render 'books/list', book: @book %>
+		</div>
 
-<section class="book-show">
-	<h2>Book detail</h2>
-	<table>
-		<tr>
-			<td>
-				<%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", class: "" %><br>
-				<%= link_to @book.user.name, user_path(@book.user.id) %>
-			</td>
-			<td>
-				<%= @book.title %>
-			</td>
-			<td>
-				<%= @book.body %>
-			</td>
-			<% if @book.user == current_user %>
-				<td>
-					<%= link_to "edit", edit_book_path , class: "edit_#{@book.id}" %>
-				</td>
-				<td>
-					<%= link_to "Destroy", book_path, method: :delete, "data-confirm" => "本当に消しますか？", class: "destroy_#{@book.id}" %>
-				</td>
-			<% end %>
-		</tr>
-	</table>
-
-</section>
+		<section class="col-xs-9">
+			<h2>Book detail</h2>
+			<table class="table">
+				<tr>
+					<td>
+						<%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", class: "user_image" %><br>
+						<%= link_to @book.user.name, user_path(@book.user.id), class: "user_#{@book.user.id}" %>
+					</td>
+					<td>
+						<%= @book.title %>
+					</td>
+					<td>
+						<%= @book.body %>
+					</td>
+					<% if @book.user == current_user %>
+						<td>
+							<%= link_to "edit", edit_book_path , class: "btn-sm btn-success edit_book_#{@book.id}" %>
+						</td>
+						<td>
+							<%= link_to "Destroy", book_path, method: :delete, "data-confirm" => "本当に消しますか？", class: "btn-sm btn-danger destroy_book_#{@book.id}" %>
+						</td>
+					<% end %>
+				</tr>
+			</table>
+		</section>
+	</div>
+</div>
